@@ -17,7 +17,7 @@
             android:id="@+id/authorTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Author"
             android:textSize="20sp"
             tools:text="Author's Name" />
 
@@ -25,7 +25,7 @@
             android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="X hours ago"
             android:textSize="15sp"
             tools:text="Date of Publication" />
 
@@ -33,13 +33,14 @@
             android:id="@+id/imageView"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/pizza"/>
 
         <TextView
             android:id="@+id/commentsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="200 comments"
             android:textSize="15sp"
             tools:text="Number of Comments"/>
 
