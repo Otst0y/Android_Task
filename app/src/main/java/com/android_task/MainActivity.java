@@ -3,15 +3,20 @@ package com.android_task;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -115,6 +120,36 @@ public class MainActivity extends AppCompatActivity {
                 // Open the URL of the image in a browser
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(thumbnailUrl));
                 startActivity(intent);
+            }
+        });
+
+        // Add OnLongClickListener to the imageView
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // Save the image to the gallery
+                Picasso.get()
+                        .load(thumbnailUrl)
+                        .into(new Target() {
+                            @Override
+                            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                                // Save the bitmap to the gallery
+                                MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Image", "Image description");
+                                Toast.makeText(MainActivity.this, "Image saved to gallery", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                                // Handle the error
+                                Toast.makeText(MainActivity.this, "Failed to save image", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onPrepareLoad(Drawable placeHolderDrawable) {
+                                // Not needed
+                            }
+                        });
+                return true;
             }
         });
 
