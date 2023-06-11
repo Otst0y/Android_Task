@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         TextView commentsTextView = postView.findViewById(R.id.commentsTextView);
 
         authorTextView.setText("Author: " + authorName);
-        dateTextView.setText("Date of Publication: " + publicationTime);
+        dateTextView.setText("Date of Publication: " + FormatDate.fDate(publicationTime));
         Picasso.get().load(thumbnailUrl).into(imageView);
         commentsTextView.setText("Number of Comments: " + numComments);
 
