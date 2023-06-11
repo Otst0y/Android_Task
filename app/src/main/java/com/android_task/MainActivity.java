@@ -2,6 +2,8 @@ package com.android_task;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -106,6 +108,15 @@ public class MainActivity extends AppCompatActivity {
         dateTextView.setText("Date of Publication: " + FormatDate.fDate(publicationTime));
         Picasso.get().load(thumbnailUrl).into(imageView);
         commentsTextView.setText("Number of Comments: " + numComments);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the URL of the image in a browser
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(thumbnailUrl));
+                startActivity(intent);
+            }
+        });
 
         parentLayout.addView(postView);
 
