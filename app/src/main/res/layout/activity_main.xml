@@ -12,38 +12,6 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
-
-        <TextView
-            android:id="@+id/authorTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Author"
-            android:textSize="20sp"
-            tools:text="Author's Name" />
-
-        <TextView
-            android:id="@+id/dateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="X hours ago"
-            android:textSize="15sp"
-            tools:text="Date of Publication" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/pizza"/>
-
-        <TextView
-            android:id="@+id/commentsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="200 comments"
-            android:textSize="15sp"
-            tools:text="Number of Comments"/>
-
     </LinearLayout>
 
 </ScrollView>

@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     private void createPostView(String authorName, long publicationTime, String thumbnailUrl, int numComments) {
         LayoutInflater inflater = LayoutInflater.from(this);
 
-        View postView = inflater.inflate(R.layout.activity_main, parentLayout, false);
+        View postView = inflater.inflate(R.layout.post_layout, parentLayout, false);
 
         TextView authorTextView = postView.findViewById(R.id.authorTextView);
         TextView dateTextView = postView.findViewById(R.id.dateTextView);
